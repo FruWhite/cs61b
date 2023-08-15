@@ -70,6 +70,7 @@ public class Planet {
         return;
     }
 
+
     public void draw(){
         StdDraw.picture(xxPos, yyPos, imgFileName);
     }
