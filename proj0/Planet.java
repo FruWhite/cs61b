@@ -38,6 +38,18 @@ public class Planet {
                 / Math.pow(calcDistance(p2), 2);
     }
 
+    public double calcForceExertedByX(Planet p){
+        double dx = p.xxPos - xxPos;
+        double r = calcDistance(p);
+        return calcForceExertedBy(p) * dx / r;
+    }
+
+    public double calcForceExertedByY(Planet p){
+        double dy = p.yyPos - yyPos;
+        double r = calcDistance(p);
+        return calcForceExertedBy(p) * dy / r;
+    }
+
     public double calcNetForceExertedByX(Planet[] allP){
         double result = .0;
         for(Planet p : allP){
@@ -69,6 +81,7 @@ public class Planet {
         yyPos = yyPos + dt * yyVel;
         return;
     }
+
 
 
     public void draw(){
