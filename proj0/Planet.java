@@ -6,7 +6,11 @@ public class Planet {
     public double mass;
     public String imgFileName;
 
-    public static double g_constant = 6.67e-11;
+    private static double g_constant;
+
+    static {
+        g_constant = 6.67e-11;
+    }
 
     public Planet(double xP, double yP, double xV,
                   double yV, double m, String img){

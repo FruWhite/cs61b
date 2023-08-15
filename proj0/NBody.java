@@ -1,6 +1,6 @@
 public class NBody {
 
-    public static String starfieldFile = "images/starfield.jpg";
+    private static String starfieldFile = "images/starfield.jpg";
     public static double readRadius(String filename){
         In in = new In(filename);
         in.readInt();
