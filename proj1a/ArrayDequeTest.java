@@ -3,10 +3,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
 public class ArrayDequeTest {
     @Disabled
     @Test
-    public void isEmptyAddGetTest(){
+    public void isEmptyAddGetTest() {
 
         ArrayDeque<Integer> ad1 = new ArrayDeque<Integer>();
 
@@ -23,7 +24,7 @@ public class ArrayDequeTest {
         ad1.addLast(15);
         ad1.addLast(16);
         ad1.addLast(17);
-        for (int i = 1; i<100; i++) {
+        for (int i = 1; i < 100; i++) {
             ad1.addLast(0);
         }
         assertEquals(ad1.get(ad1.size() - 1), 0);
@@ -31,15 +32,15 @@ public class ArrayDequeTest {
     }
 
     @Test
-    public void fillUpEmptyFillUpAgain(){
+    public void fillUpEmptyFillUpAgain() {
         ArrayDeque<Integer> ad1 = new ArrayDeque<Integer>();
-        for (int i = 1; i<16; i++) {
+        for (int i = 1; i < 16; i++) {
             ad1.addFirst(0);
         }
-        for (int i = 1; i<16; i++) {
+        for (int i = 1; i < 16; i++) {
             assertEquals(0, ad1.removeFirst());
         }
-        for (int i = 1; i<1000; i++) {
+        for (int i = 1; i < 1000; i++) {
             ad1.addFirst(0);
         }
     }
