@@ -1,8 +1,8 @@
 public class ArrayDeque<T> {
-    T[] items;
-    int next_first;
-    int next_last;
-    int size;
+    private T[] items;
+    private int next_first;
+    private int next_last;
+    private int size;
 
     public ArrayDeque() {
         items = (T[]) new Object[8];
@@ -10,24 +10,35 @@ public class ArrayDeque<T> {
         next_first = items.length - 1;
         next_last = 0;
     }
-
+    /** resize the array, with new NEXT_FIRST at index LENGTH - 1*/
     private void resize(int capacity) {
-        T[] a = (T[]) new Object[capacity];
-        System.arraycopy(items, 0, a, 0, next_last);
-        int new_next_first = a.length - (items.length - next_first);
-        System.arraycopy(items, next_first + 1, a, new_next_first + 1, items.length - next_first - 1);
-        items = a;
-        next_first = new_next_first;
+       int p = next_first;
+       T[] new_items = (T[]) new Object[capacity];
+       for (int i = 0; i<size; i++) {
+           p = circularIncrease(p);
+           new_items[i] = items[p];
+       }
+       items = new_items;
+       next_first = items.length - 1;
+       next_last = size;
     }
 
+    private int circularIncrease(int x, int step, int circ_length) {
+        x += step;
+        x %= circ_length;
+        if (x < 0){
+            x += circ_length;
+        }
+        return x;
+    }
     private int circularIncrease(int x) {
-        x += 1;
-        return x % items.length;
+        return circularIncrease(x, 1);
     }
-
+    private int circularIncrease(int x, int step){
+        return circularIncrease(x, step, items.length);
+    }
     private int circularDecrease(int x) {
-        x -= 1;
-        return (x + items.length) % items.length;
+        return circularIncrease(x, -1);
     }
 
     public void addFirst(T x) {
