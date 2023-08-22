@@ -50,6 +50,9 @@ public class ArrayDeque<T> {
         }
     }
     public T removeLast(){
+        if(size == 0){
+            return null;
+        }
         int last = CircularDecrease(next_last);
         T x = items[last];
         items[last] = null;
@@ -61,6 +64,9 @@ public class ArrayDeque<T> {
         return x;
     }
     public T removeFirst(){
+        if(size == 0){
+            return null;
+        }
         int first = CircularIncrease(next_first);
         T x = items[first];
         items[first] = null;
