@@ -13,7 +13,6 @@ public class LinkedListDeque<T> {
             next = n;
             prev = p;
         }
-
     }
 
     public LinkedListDeque() {
