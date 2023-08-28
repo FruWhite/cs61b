@@ -6,11 +6,12 @@ public class Palindrome {
         if (word == null) {
             return dq;
         }
-        for (int i = 0; i<word.length(); i++) {
+        for (int i = 0; i < word.length(); i++) {
             dq.addLast(word.charAt(i));
         }
         return dq;
     }
+
     public boolean isPalindrome(String word) {
         return isPalindromeHelper(wordToDeque(word));
     }
@@ -22,6 +23,7 @@ public class Palindrome {
             return isPalindromeHelper(dq);
         }
         else {return false;}
+
     }
 
     public boolean isPalindrome(String word, CharacterComparator cc) {
@@ -31,10 +33,11 @@ public class Palindrome {
     private boolean isPalindromeHelper(Deque<Character> dq, CharacterComparator cc) {
         if (dq.isEmpty() || dq.size() == 1) {
             return true;
-        }
-        else if (cc.equalChars(dq.removeFirst(), dq.removeLast())) {
+
+        } else if (cc.equalChars(dq.removeFirst(), dq.removeLast())) {
             return isPalindromeHelper(dq, cc);
+        } else {
+            return false;
         }
-        else {return false;}
     }
 }

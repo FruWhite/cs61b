@@ -14,6 +14,7 @@ public class TestPalindrome {
         }
         assertEquals("persiflage", actual);
     }
+
     @Test
     public void testIsPalindrome() {
         String[] Palindromes = new String[]{null, "a", "A", "abcba", "AbaBa"};
@@ -25,10 +26,12 @@ public class TestPalindrome {
             assertFalse(palindrome.isPalindrome(word));
         }
     }
+
     @Test
     public void testOverloadedIsPalindrome() {
         CharacterComparator cc = new OffByOne();
         assertTrue(palindrome.isPalindrome("flake", cc));
-        assertTrue(palindrome.isPalindrome("&%" ,cc));
+
+        assertTrue(palindrome.isPalindrome("&%", cc));
     }
 }
