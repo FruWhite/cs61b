@@ -1,5 +1,3 @@
-import org.junit.jupiter.api.Test;
-
 public class Palindrome {
     public Deque<Character> wordToDeque(String word) {
         Deque<Character> dq = new LinkedListDeque<>();
